@@ -67,6 +67,7 @@ def setGuessedWord(guessedWords,secretWord,lettersGuessed):
 
 def message(text, guessed):
     print text + guessed
+    print '------------'
 
 def startGame(secretWord, guessesLeft):
 
@@ -97,12 +98,10 @@ def startGame(secretWord, guessesLeft):
 
             else:
                 guessesLeft -=1
-                lettersGuessed.append(letter)
                 text = 'Oops! That letter is not in my word: '
 
             guessed = setGuessedWord(getGuessedWord(),secretWord,lettersGuessed)
             message(text, guessed)
-            print '------------'
 
     else:
         print 'Sorry, you ran out of guesses. The word was ', secretWord, '.'
