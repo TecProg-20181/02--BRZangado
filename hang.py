@@ -30,6 +30,10 @@ def checkNumberOfLetters(word):
     while True:
         if len(word) <= 8:
             return word
+def checkDifferentLetters(word):
+    ## set() is a collection of unique elements
+    howMany = set(word)
+    return len(howMany)
 
 def isWordGuessed(secretWord, lettersGuessed):
     secretLetters = []
@@ -110,6 +114,8 @@ def startGame(secretWord, guessesLeft):
                 text = 'Good Guess: '
 
             else:
+                
+                lettersGuessed.append(letter)
                 guessesLeft -=1
                 text = 'Oops! That letter is not in my word: '
 
@@ -122,9 +128,10 @@ def startGame(secretWord, guessesLeft):
 def hangman(secretWord):
 
     guesses = 8
-    
+    differentLetters = checkDifferentLetters(secretWord)
     print 'Welcome to the game, Hangam!'
     print 'I am thinking of a word that is', len(secretWord), ' letters long.'
+    print 'The word has ', differentLetters, ' different letters.'
     print '-------------'
 
     startGame(secretWord,guesses)
