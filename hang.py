@@ -36,13 +36,6 @@ def checkDifferentLetters(word):
     return len(howMany)
 
 def isWordGuessed(secretWord, lettersGuessed):
-    secretLetters = []
-
-#    for letter in secretWord:
-#        if letter in secretLetters:
-#            secretLetters.append(letter)
-#        else:
-#            pass
 
     for letter in secretWord:
         if letter in lettersGuessed:
@@ -114,7 +107,7 @@ def startGame(secretWord, guessesLeft):
                 text = 'Good Guess: '
 
             else:
-                
+
                 lettersGuessed.append(letter)
                 guessesLeft -=1
                 text = 'Oops! That letter is not in my word: '
