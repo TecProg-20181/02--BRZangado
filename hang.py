@@ -3,7 +3,14 @@ import string
 
 WORDLIST_FILENAME = "palavras.txt"
 
-def loadWords():
+def loadWord():
+    
+    wordlist = createWordList()
+    randomWord = random.choice(wordlist).lower()
+    testedWord = checkNumberOfLetters(randomWord)
+    return testedWord
+
+def createWordList():
     """
     Depending on the size of the word list, this function may
     take a while to finish.
@@ -16,7 +23,13 @@ def loadWords():
     # wordlist: list of strings
     wordlist = string.split(line)
     print "  ", len(wordlist), "words loaded."
-    return random.choice(wordlist).lower()
+
+    return wordlist
+
+def checkNumberOfLetters(word):
+    while True:
+        if len(word) <= 8:
+            return word
 
 def isWordGuessed(secretWord, lettersGuessed):
     secretLetters = []
@@ -117,5 +130,5 @@ def hangman(secretWord):
     startGame(secretWord,guesses)
 
 
-secretWord = loadWords()
+secretWord = loadWord()
 hangman(secretWord)
